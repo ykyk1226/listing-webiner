@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,8 +76,17 @@ WSGI_APPLICATION = 'listing_webiner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': os.environ.get('ENV_DATABASE'),
+        'USER': os.environ.get('ENV_USER'),
+        'PASSWORD': os.environ.get('ENV_PASSWORD'),
+        'HOST': os.environ.get('ENV_DB_SERVER'),
+        'PORT': os.environ.get('ENV_DB_PORT'),
+
+        'OPTIONS': {
+            'driver': 'FreeTDS',
+            'extra_params': 'tds_version=8.0;',
+        },
     }
 }
 
