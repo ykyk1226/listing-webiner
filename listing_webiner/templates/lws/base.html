@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css' %}">
+{% block extra_css %}{% endblock %}
+<title>{% block title %}Listing Webiner{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+    </div>
+<script src="{% static 'cms/js/vue.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
