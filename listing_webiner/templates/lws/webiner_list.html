@@ -1,5 +1,29 @@
-{% extends "lws/base.html" %}
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'lws/css/webiner_list.css' %}">
+{% endblock %}
 
 {% block content %}
-    <h4 class="mt-4 border-bottom">ウェビナー一覧</h4>
-{% endblock content %}
+    <script type="text/javascript">
+        rows = [];
+    </script>
+    {% for webiner in webiners %}
+        <script type="text/javascript">
+            rows.push({ date:"{{ webiner.date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
+        </script>
+    {% endfor %}
+    <div id="webiner_table_app">
+        <vue-good-table
+            :columns="columns"
+            :rows="rows"
+            :line-numbers=true
+            :search-options="searchOptions"
+            @on-row-click="onRowClick"
+        />
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'lws/js/webiner_table.js' %}"></script>
+{% endblock %}

@@ -7,8 +7,8 @@ class WebinerLists(models.Model):
     title = models.CharField(max_length=100)
     url = models.CharField(max_length=300)
     date = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, models.DO_NOTHING)
-    source_site = models.ForeignKey(SourceSite, models.DO_NOTHING)
+    category_id = models.ForeignKey(Category, db_column='category_id', on_delete=models.DO_NOTHING)
+    source_site_id = models.ForeignKey(SourceSite, db_column='source_site_id', on_delete=models.DO_NOTHING)
     updated_at = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:

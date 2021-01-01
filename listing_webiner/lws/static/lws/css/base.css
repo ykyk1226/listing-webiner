@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+}
+
+.hd-b {
+    background-color: #110000;
+    height: 70px;
+    font-size: 20px;
+    color: white;
+}
+
+.hd-title {
+    margin-left: 20pt;
+    float: left;
+    font-size: 1.2rem;
+}
+
+/* ハンバーガーメニュー */
+.hamburger_btn {
+    float: right;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.hamburger_btn .line {
+    width: 32px;
+    height: 3px;
+    background-color: white;
+    position: fixed;
+}
+
+.line_01 {
+    right: 20px;
+    top: 22px;
+    transition: 0.4s ease;
+}
+.line_02 {
+    right: 20px;
+    top: 32px;
+    transition: 0.4s ease;
+}
+.line_03 {
+    right: 20px;
+    top: 42px;
+    transition: 0.4s ease;
+}
+
+.btn_line01 {
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.4s ease;
+}
+.btn_line02 {
+    transition: 0.4s ease;
+    opacity: 0;
+}
+.btn_line03 {
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.4s ease;
+}
+
+/*サイドバー*/
+.menu-enter-active, .menu-leave-active {
+    transition: opacity 0.4s;
+}
+.menu-enter, .menu-leave-to {
+    opacity: 0;
+}
+.menu-leave, .menu-enter-to{
+    opacity: 1;
+}
+
+.menu li {
+    list-style: none;
+    line-height: 1;
+    text-align: center;
+    margin: 8px 0;
+}
+.menu {
+    background-color: rgba(197, 197, 197, 0.671);
+    z-index: 30;
+    padding: 0 1rem;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 150px;
+    float: right;
+}
+.menu a {
+    color: #110000;
+    text-decoration: none;
+    font-size: 1.0rem;
+}
+.menu ul{
+    padding: 0;
+}

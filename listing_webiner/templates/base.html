@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{% static 'lws/css/base.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/vue-good-table@2.16.3/dist/vue-good-table.css" rel='stylesheet'>
+        {% block extra_css %}{% endblock %}
+        <title>{% block title %}Listing Webiner{% endblock %}</title>
+    </head>
+    <body>
+        <header class="hd-b">
+            <div class="hd-title">
+                <p>Webiner</p>
+            </div>
+            <div id="hamburger_app">
+                <!--ハンバーガーメニューのボタン-->
+                <div class="hamburger_btn" v-on:click="ActiveBtn=!ActiveBtn">
+                    <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
+                    <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
+                    <span class="line line_03" v-bind:class="{'btn_line03':ActiveBtn}"></span>
+                </div>
+                <!--サイドバー-->
+                <transition name="menu">
+                    <div class="menu" v-show="ActiveBtn">
+                        <ul>
+                            <li><a href="#">Webiner List</a></li>
+                        </ul>
+                    </div>
+                </transition>
+            </div>
+        </header>
+        <div class="container">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-good-table@2.16.3/dist/vue-good-table.js"></script>
+        <script src="{% static 'lws/js/hamburger.js' %}"></script>
+        {% block extra_js %}{% endblock %}
+    </body>
+</html>
