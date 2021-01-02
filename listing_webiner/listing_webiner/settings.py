@@ -102,16 +102,7 @@ DATABASE_CONNECTION_POOLING = False
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -135,6 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL='/users/login'
+LOGIN_URL='/login'
 LOGIN_REDIRECT_URL='/lws/webiner'
-LOGOUT_REDIRECT_URL='/users/login'
+LOGOUT_REDIRECT_URL='/login'

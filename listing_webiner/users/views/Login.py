@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth import login
 from users.models.custom_user import CustomUser
 from users.forms.loginForm import LoginForm
@@ -15,7 +15,4 @@ class Login(View):
         return redirect(to='/users/login')
 
     def get(self, request, *args, **kwargs):
-        form = LoginForm(request.POST)
         return redirect(to='/users/login')
-
-login = Login.as_view()

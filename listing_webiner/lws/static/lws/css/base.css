@@ -17,11 +17,13 @@ body {
 
 /* ハンバーガーメニュー */
 .hamburger_btn {
-    float: right;
+    right: 0px;
     width: 70px;
     height: 70px;
     cursor: pointer;
     margin: auto 0;
+    background-color: #110000;
+    position: fixed;
 }
 
 .hamburger_btn .line {
@@ -73,14 +75,23 @@ body {
 
 .menu li {
     list-style: none;
-    line-height: 1;
+    line-height: 30px;
     text-align: center;
-    margin: 8px 0;
+    border: solid;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    width: 150px;
 }
+
+.menu li:hover {
+    background-color: #808080;
+}
+
 .menu {
     background-color: rgba(197, 197, 197, 0.671);
     z-index: 30;
-    padding: 0 1rem;
+    padding: 0 0;
     position: fixed;
     top: 70px;
     right: 0;
@@ -93,5 +104,5 @@ body {
     font-size: 1.0rem;
 }
 .menu ul{
-    padding: 0;
+    padding: 0 0 0 0;
 }
