@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'lws.apps.LwsConfig',
 ]
 
+AUTH_USER_MODEL = 'lws.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
