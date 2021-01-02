@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
     'lws.apps.LwsConfig',
 ]
 
-AUTH_USER_MODEL = 'lws.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,3 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL='/login'
+LOGIN_REDIRECT_URL='/lws/webiner'
+LOGOUT_REDIRECT_URL='/login'

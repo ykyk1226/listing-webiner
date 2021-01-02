@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+input {
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+.error {
+    line-height: 1.5em;
+    color: red;
+    text-align: center;
+}
+
+after { clear: both; }
+
+#login {
+    margin: 50px auto;
+    width: 320px;
+    min-height: 320px
+}
+
+#login form {
+    margin: auto;
+    padding: 25px 25px 25px 25px;
+    width: 100%;
+    border-radius: 5px;
+    background: #110000;
+    border-top: 3px solid #434a52;
+    border-bottom: 3px solid #434a52;
+}
+
+#login form i {
+    background-color: #363b41;
+    border-radius: 3px 0px 0px 3px;
+    border-right: 3px solid #434a52;
+    display: block;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#login form input[type="text"] {
+    border-radius: 0px 3px 3px 0px;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    width: 235px;
+    height: 50px;
+    float: right;
+}
+
+#login form input[type="password"] {
+    border-radius: 0px 3px 3px 0px;
+    margin-bottom: 1em;
+    padding: 0 5px;
+    width: 235px;
+    height: 50px;
+    float: right;
+}
+
+#login form input[type="submit"] {
+    background: #EEEEEE;
+    border: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#login form input[type="submit"]:hover {
+    background: rgba(197, 197, 197, 0.671);
+}
+
+.error-message {
+    margin-right: auto;
+    margin-left: 440px;
+    color: white;
+    font-size: 20px;
+}
+
+.error-message ul {
+    margin: 15px 0;
+}

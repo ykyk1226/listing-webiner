@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
 from django.utils import timezone
-from lws.models.custom_user_manager import CustomUserManager
+from users.models.custom_user_manager import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
@@ -30,6 +30,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     class Meta:
+        managed = False
         db_table = 'custom_user'
 
     def clean(self):

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link href="{% static 'users/css/login.css' %}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{% static 'AdminLTE-2.4.12/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="login">
+    <form method="post" action="{% url 'login' %}"　name='form-login'>
+        {% csrf_token %}
+        <i class="fa fa-envelope" style="color:rgba(197, 197, 197, 0.671);font-size:30px"></i>
+        <div id="username">{{ form.username }}</div>
+        <i class="fa fa-lock" style="color:rgba(197, 197, 197, 0.671);font-size:45px"></i>
+        <div id="pass">{{ form.password }}</div>
+        <input type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+</div>
+
+{% if form.errors %}
+<p class="error">入力したメールアドレスもしくはパスワードが間違っています。もう一度入力してください。</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p lass="error">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p class="error">ログインしてください。</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

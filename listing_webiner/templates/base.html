@@ -25,7 +25,11 @@
                 <transition name="menu">
                     <div class="menu" v-show="ActiveBtn">
                         <ul>
-                            <li><a href="#">Webiner List</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="#">Webiner List</a></li>
+                            {% else %}
+                                <li><a href="#">Sign up</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </transition>
