@@ -2,10 +2,10 @@
 {% load static %}
 {% block extra_css %}
     <link href="{% static 'users/css/login.css' %}" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 {% endblock %}
 
 {% block content %}
+<h1 class="login-title">Log in</h1>
 <div id="login">
     <form method="post" action="{% url 'login' %}"　name='form-login'>
         {% csrf_token %}

@@ -9,6 +9,10 @@ input {
     -webkit-appearance: none;
 }
 
+h1.login-title {
+    text-align: center;
+}
+
 .error {
     line-height: 1.5em;
     color: red;
@@ -18,15 +22,13 @@ input {
 after { clear: both; }
 
 #login {
-    margin: 50px auto;
-    width: 320px;
-    min-height: 320px
+    margin: 30px auto;
+    width: 380px;
 }
 
 #login form {
     margin: auto;
     padding: 25px 25px 25px 25px;
-    width: 100%;
     border-radius: 5px;
     background: #110000;
     border-top: 3px solid #434a52;
@@ -50,7 +52,7 @@ after { clear: both; }
     border-radius: 0px 3px 3px 0px;
     margin-bottom: 10px;
     padding: 0 5px;
-    width: 235px;
+    width: 250px;
     height: 50px;
     float: right;
 }
@@ -59,7 +61,7 @@ after { clear: both; }
     border-radius: 0px 3px 3px 0px;
     margin-bottom: 1em;
     padding: 0 5px;
-    width: 235px;
+    width: 250px;
     height: 50px;
     float: right;
 }

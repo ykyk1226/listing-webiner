@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{% static 'lws/css/base.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/vue-good-table@2.16.3/dist/vue-good-table.css" rel='stylesheet'>
         {% block extra_css %}{% endblock %}
         <title>{% block title %}Listing Webiner{% endblock %}</title>
@@ -31,6 +32,7 @@
                                 <li><a href="{% url 'logout' %}">Log out</a></li>
                             {% else %}
                                 <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                                <li><a href="{% url 'login' %}">Log in</a></li>
                             {% endif %}
                         </ul>
                     </div>

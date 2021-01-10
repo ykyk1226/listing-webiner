@@ -10,9 +10,9 @@
 <div id="signup">
     <form method="post" action="{% url 'users:signup' %}"　name='form-signup'>
         {% csrf_token %}
-        <table>
+        <table class="signup-table">
             <tr class="signup-input">
-                <td>
+                <td class="table-label">
                     <p>メールアドレス：</p>
                 </td>
                 <td>
@@ -20,19 +20,21 @@
                 </td>
             </tr>
             <tr class="signup-input">
-                <td>
+                <td class="table-label">
                     <p>パスワード：</p>
                 </td>
                 <td>
-                    <div id="pass">{{ form.password1 }}</div>
+                    <div id="password">
+                        {{ form.password1 }}
+                    </div>
                 </td>
             </tr>
             <tr class="signup-input">
-                    <td>
+                    <td class="table-label">
                         <p>パスワード(確認)：</p>
                     </td>
                     <td>
-                        <div id="pass">{{ form.password2 }}</div>
+                        <div id="password">{{ form.password2 }}</div>
                     </td>
                 </tr>
         </table>
