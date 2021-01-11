@@ -32,6 +32,17 @@
                 skipDiacritics: false,
                 placeholder: 'Webinerを検索します',
             }"
+            :pagination-options="{
+                enabled: true,
+                mode: 'pages',
+                perPage: 20,
+                dropdownAllowAll: false,
+                nextLabel: '次',
+                prevLabel: '前',
+                rowsPerPageLabel: '１ページあたりの件数',
+                ofLabel: 'of',
+                pageLabel: 'ページ',
+            }"
             @on-cell-click="onCellClick"
         />
         <div slot="selected-row-actions">
