@@ -6,8 +6,14 @@
 
 {% block content %}
     <script type="text/javascript">
-        rows = [];
+        var rows = [];
+        var category_list = [];
     </script>
+    {% for category in categories %}
+        <script type="text/javascript">
+            category_list.push("{{category.name }}");
+        </script>
+    {% endfor %}
     {% for webiner in webiners %}
         <script type="text/javascript">
             rows.push({ date:"{{ webiner.date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
@@ -17,10 +23,20 @@
         <vue-good-table
             :columns="columns"
             :rows="rows"
-            :line-numbers=true
-            :search-options="searchOptions"
-            @on-row-click="onRowClick"
+            :line-numbers="true"
+            :select-options="{
+                enabled: true,
+            }"
+            :search-options="{
+                enabled: true,
+                skipDiacritics: false,
+                placeholder: 'Webinerを検索します',
+            }"
+            @on-cell-click="onCellClick"
         />
+        <div slot="selected-row-actions">
+            <button>マイリストへ登録</button>
+        </div>
     </div>
 {% endblock %}
 

@@ -1,3 +1,26 @@
+.table-filter {
+    padding: 0% 10%;
+    text-align: left;
+    display: inline-flex;
+}
+
+.table-filter select {
+    margin: auto;
+}
+
+.table-filter .ui-multiselect {
+    height: 30px;
+    margin: auto;
+}
+
+.th-date {
+    width: 100px;
+}
+
+.cell-title {
+    cursor: pointer;
+}
+
 #webiner_table_app {
     width: 80%;
     margin: auto

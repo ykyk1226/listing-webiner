@@ -1,4 +1,4 @@
-var webiner_table_app = new Vue({
+new Vue({
     delimiters: ['[[', ']]'],
     el: '#webiner_table_app',
     data:{
@@ -7,10 +7,12 @@ var webiner_table_app = new Vue({
             label: '開催日時',
             field: 'date',
             width: '100px',
+            thClass: 'th-date',
         },
         {
             label: 'タイトル',
         　  field: 'title',
+            tdClass: 'cell-title',
         },
         {
             label: 'URL',
@@ -20,19 +22,28 @@ var webiner_table_app = new Vue({
         {
             label: 'カテゴリ',
             field: 'category',
-            width: '100px',
+            width: '150px',
+            filterOptions: {
+                enabled: true,
+                placeholder: 'カテゴリで絞る',
+                filterDropdownItems: category_list,
+            },
         },
-        ],
-        searchOptions: {
-            enabled: true,
-            trigger: 'enter',
-            skipDiacritics: false,
-            placeholder: 'Webinerを検索します',
-        }
+        ]
     },
     methods: {
-        onRowClick : function(params) {
-            window.open(params.row['url'], '_blank');
-        }
+        onCellClick : function(params) {
+            if (params.column.field == 'title') {
+                window.open(params.row['url'], '_blank');
+            }
+        },
+        tableFilter : function(row, col, cellValue, searchTerm) {
+            let table_filter = $("#table_filter option:selected").len;
+            if (table_filter == 0) {
+                return true;
+            } else {
+                return table_filter.indexOf(row['category']) >= 0;
+            }
+        },
     }
 });
