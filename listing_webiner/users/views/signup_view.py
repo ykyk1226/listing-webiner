@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, get_user_model
 from django.views import generic
 from users.forms.signupForm import SignupForm
 
-class Signup(generic.CreateView):
+class SignupView(generic.CreateView):
 
     def post(self, request, *args, **kwargs):
         form = SignupForm(request.POST)
