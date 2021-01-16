@@ -1,3 +1,3 @@
-from lws.models.category import Category
-from lws.models.source_site import SourceSite
-from lws.models.webiner_lists import WebinerLists
+from .category_model import CategoryModel
+from .source_site_model import SourceSiteModel
+from .webiner_lists_model import WebinerListsModel

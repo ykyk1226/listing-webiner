@@ -1,1 +1,1 @@
-from lws.views.webiner import *
+from .webiner_view import *

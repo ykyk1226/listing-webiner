@@ -16,7 +16,7 @@
     {% endfor %}
     {% for webiner in webiners %}
         <script type="text/javascript">
-            rows.push({ date:"{{ webiner.date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
+            rows.push({ id: "{{ webiner.id }}", date:"{{ webiner.date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
         </script>
     {% endfor %}
     <div id="webiner_table_app">

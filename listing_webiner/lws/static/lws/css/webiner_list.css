@@ -17,8 +17,9 @@
     width: 100px;
 }
 
-.cell-title {
+.cell-title:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 #webiner_table_app {

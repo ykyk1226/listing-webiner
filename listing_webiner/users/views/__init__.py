@@ -1,2 +1,2 @@
-from users.views.login import Login
-from users.views.signup import Signup
+from .login import Login
+from .signup import Signup

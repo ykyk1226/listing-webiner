@@ -4,6 +4,11 @@ new Vue({
     data:{
         columns: [
         {
+            label: 'ID',
+            field: 'id',
+            hidden: true,
+        },
+        {
             label: '開催日時',
             field: 'date',
             width: '100px',
