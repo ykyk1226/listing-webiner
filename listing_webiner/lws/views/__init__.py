@@ -1,1 +1,0 @@
-from .webiner_view import *
