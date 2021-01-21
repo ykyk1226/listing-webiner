@@ -19,35 +19,65 @@
             rows.push({ id: "{{ webiner.id }}", date:"{{ webiner.date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
         </script>
     {% endfor %}
+    <script type="text/javascript">
+        function register_to_mylist(){
+            document.getElementById('webiner_lists').value = JSON.stringify(selected_rows);
+            let mixedDatas = new FormData(document.getElementById("webiner_data_form"));
+            let XHR = new XMLHttpRequest();
+            XHR.open("POST", "{% url 'lws:register_webiner' %}", true);
+            XHR.send(mixedDatas);
+            XHR.onreadystatechange = function(){
+                if(XHR.readyState == 4 && XHR.status == 200){
+                    document.getElementById("add_webiner_result").innerHTML = "マイリストに" + selected_rows.length + "件追加しました";
+                }else{
+                    document.getElementById("add_webiner_result").innerHTML = "マイリストに既に登録されているため追加できません";
+                }
+            };
+        };
+    </script>
+    <div >
+        <p id="add_webiner_result" class="add_webiner_result">
+
+        </p>
+    </div>
     <div id="webiner_table_app">
-        <vue-good-table
-            :columns="columns"
-            :rows="rows"
-            :line-numbers="true"
-            :select-options="{
-                enabled: true,
-            }"
-            :search-options="{
-                enabled: true,
-                skipDiacritics: false,
-                placeholder: 'Webinerを検索します',
-            }"
-            :pagination-options="{
-                enabled: true,
-                mode: 'pages',
-                perPage: 20,
-                dropdownAllowAll: false,
-                nextLabel: '次',
-                prevLabel: '前',
-                rowsPerPageLabel: '１ページあたりの件数',
-                ofLabel: 'of',
-                pageLabel: 'ページ',
-            }"
-            @on-cell-click="onCellClick"
-        />
-        <div slot="selected-row-actions">
-            <button>マイリストへ登録</button>
-        </div>
+        <form id="webiner_data_form">
+            {% csrf_token %}
+            <vue-good-table
+                ref="webiner_table"
+                :columns="columns"
+                :rows="rows"
+                :line-numbers="true"
+                :select-options="{
+                    enabled: true,
+                    selectOnCheckboxOnly: true,
+                    selectionText: '件選択されました',
+                    clearSelectionText: '選択解除',
+                }"
+                :search-options="{
+                    enabled: true,
+                    skipDiacritics: false,
+                    placeholder: 'Webinerを検索します',
+                }"
+                :pagination-options="{
+                    enabled: true,
+                    mode: 'pages',
+                    perPage: 20,
+                    dropdownAllowAll: false,
+                    nextLabel: '次',
+                    prevLabel: '前',
+                    rowsPerPageLabel: '１ページあたりの件数',
+                    ofLabel: 'of',
+                    pageLabel: 'ページ',
+                }"
+                @on-cell-click="onCellClick"
+                @on-selected-rows-change="selectionChanged"
+            />
+            <div slot="selected-row-actions">
+                <input type="hidden" name="webiner_lists" id="webiner_lists"　value="">
+                <button type="button" id="send_webiner_data" onclick="register_to_mylist()">マイリストへ登録</button>
+            </div>
+        </form>
     </div>
 {% endblock %}
 

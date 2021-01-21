@@ -1,3 +1,5 @@
+var selected_rows;
+
 new Vue({
     delimiters: ['[[', ']]'],
     el: '#webiner_table_app',
@@ -49,6 +51,9 @@ new Vue({
             } else {
                 return table_filter.indexOf(row['category']) >= 0;
             }
+        },
+        selectionChanged : function() {
+            selected_rows = this.$refs['webiner_table'].selectedRows;
         },
     }
 });

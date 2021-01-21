@@ -1,6 +1,6 @@
 from django.db import models
-from lws.models.category_model import CategoryModel
-from lws.models.source_site_model import SourceSiteModel
+from lws.models.categoryModel import CategoryModel
+from lws.models.sourceSiteModel import SourceSiteModel
 
 class WebinerListsModel(models.Model):
     id = models.CharField(primary_key=True, max_length=30)

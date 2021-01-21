@@ -4,7 +4,6 @@ from django.views import generic
 from users.forms.signupForm import SignupForm
 
 class SignupView(generic.CreateView):
-
     def post(self, request, *args, **kwargs):
         form = SignupForm(request.POST)
         if form.is_valid():

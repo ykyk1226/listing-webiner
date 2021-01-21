@@ -1,8 +1,9 @@
 from django.urls import path
-from lws.views import webiner_view
+from lws.views import listingWebinerView
+from lws.views import RegisterWebinerView
 
 app_name = 'lws'
 urlpatterns = [
-    path('webiner/', webiner_view.webiner_list, name='webiner_list'),
-    path('webiner/register', webiner_view.register_webiner, name='register_webiner'),
+    path('webiner/', listingWebinerView.listingWebiner, name='webiner_list'),
+    path('webiner/register', RegisterWebinerView.as_view(), name='register_webiner'),
 ]

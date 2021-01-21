@@ -1,1 +1,1 @@
-from .register_webiner_form import RegisterWebinerForm
+from .registerWebinerForm import RegisterWebinerForm

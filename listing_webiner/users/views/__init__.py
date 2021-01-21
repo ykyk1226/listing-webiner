@@ -1,1 +1,1 @@
-from .signup_view import SignupView
+from .signupView import SignupView

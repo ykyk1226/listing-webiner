@@ -1,3 +1,4 @@
-from .category_model import CategoryModel
-from .source_site_model import SourceSiteModel
-from .webiner_lists_model import WebinerListsModel
+from .categoryModel import CategoryModel
+from .sourceSiteModel import SourceSiteModel
+from .webinerListsModel import WebinerListsModel
+from .mylistsModel import MylistsModel
