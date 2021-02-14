@@ -27,18 +27,18 @@
             XHR.open("POST", "{% url 'lws:register_webiner' %}", true);
             XHR.send(mixedDatas);
             XHR.onreadystatechange = function(){
-                if(XHR.readyState == 4 && XHR.status == 200){
-                    document.getElementById("add_webiner_result").innerHTML = "マイリストに" + selected_rows.length + "件追加しました";
-                }else{
-                    document.getElementById("add_webiner_result").innerHTML = "マイリストに既に登録されているため追加できません";
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                    document.getElementById("add_webiner_result_message").innerHTML = "マイリストに" + selected_rows.length + "件追加しました";
+                } else {
+                    document.getElementById("add_webiner_result_message").innerHTML = "マイリストに既に登録されているため追加できません";
                 }
+                document.getElementById("batsu").innerHTML = "×";
             };
         };
     </script>
-    <div >
-        <p id="add_webiner_result" class="add_webiner_result">
-
-        </p>
+    <div class="add_webiner_result">
+        <div id="add_webiner_result_message" class="add_webiner_result_message"></div>
+        <div id="batsu" class="batsu" onclick="delete_message()"></div>
     </div>
     <div id="webiner_table_app">
         <form id="webiner_data_form">

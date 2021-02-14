@@ -26,3 +26,27 @@
     width: 80%;
     margin: auto
 }
+
+.add_webiner_result {
+    width: 80%;
+    margin: auto;
+}
+
+.add_webiner_result div {
+    text-align: center;
+    display: inline-block;
+}
+
+.batsu {
+    font-size: 100%;
+    font-weight: bold;
+    color: #999;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.batsu:hover {
+    color: #333;
+}
