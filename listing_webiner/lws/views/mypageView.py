@@ -12,7 +12,8 @@ class MypageView(generic.CreateView, LoginRequiredMixin):
 
         Returns:
             HttpResponse: lws/mypage.htmlを表示するためのhttpレスポンス
-        """        mylists = MylistsModel.objects.select_related('webiner').filter(
+        """
+        mylists = MylistsModel.objects.select_related('webiner').filter(
             user=request.user).order_by('webiner_id__date')
         mywebiners = [mylist.webiner for mylist in mylists]
         return render(request, 'lws/mypage.html',
