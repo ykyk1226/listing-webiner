@@ -86,7 +86,6 @@ DATABASES = {
         'PASSWORD': os.environ.get('ENV_PASSWORD'),
         'HOST': os.environ.get('ENV_DB_SERVER'),
         'PORT': os.environ.get('ENV_DB_PORT'),
-
         'OPTIONS': {
             'driver': 'FreeTDS',
             'host_is_server': True,
