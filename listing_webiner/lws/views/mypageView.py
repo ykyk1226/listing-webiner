@@ -8,7 +8,11 @@ from lws.models.webinerListsModel import WebinerListsModel
 
 class MypageView(generic.CreateView, LoginRequiredMixin):
     def get(self, request, *args, **kwargs):
-        mylists = MylistsModel.objects.select_related('webiner').filter(
+        """mypage表示処理、lws/mypage.htmlを表示する。
+
+        Returns:
+            HttpResponse: lws/mypage.htmlを表示するためのhttpレスポンス
+        """        mylists = MylistsModel.objects.select_related('webiner').filter(
             user=request.user).order_by('webiner_id__date')
         mywebiners = [mylist.webiner for mylist in mylists]
         return render(request, 'lws/mypage.html',
