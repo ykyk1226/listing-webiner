@@ -27,7 +27,7 @@
                     <div class="menu" v-show="ActiveBtn">
                         <ul>
                             {% if user.is_authenticated %}
-                            <li><a href="#">My Page</a></li>
+                                <li><a href="{% url 'lws:mypage' %}">My Page</a></li>
                                 <li><a href="{% url 'lws:webiner_list' %}">Webiner List</a></li>
                                 <li><a href="{% url 'logout' %}">Log out</a></li>
                             {% else %}
