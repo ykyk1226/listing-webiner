@@ -6,7 +6,7 @@ from lws.models.mylistsModel import MylistsModel
 from lws.models.webinerListsModel import WebinerListsModel
 
 
-class MypageView(generic.CreateView, LoginRequiredMixin):
+class MycalenderView(generic.CreateView, LoginRequiredMixin):
     def get(self, request, *args, **kwargs):
         """mypage表示処理、lws/mypage.htmlを表示する。
 
@@ -14,7 +14,7 @@ class MypageView(generic.CreateView, LoginRequiredMixin):
             HttpResponse: lws/mypage.htmlを表示するためのhttpレスポンス
         """
         mylists = MylistsModel.objects.select_related('webiner').filter(
-            user=request.user).order_by('webiner_id__date')
+            user=request.user).order_by('webiner_id__start_date')
         mywebiners = [mylist.webiner for mylist in mylists]
-        return render(request, 'lws/mypage.html',
+        return render(request, 'lws/mycalender.html',
                       {'mywebiners': mywebiners})

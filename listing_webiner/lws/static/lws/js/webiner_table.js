@@ -12,7 +12,13 @@ new Vue({
         },
         {
             label: '開催日時',
-            field: 'date',
+            field: 'start_date',
+            width: '100px',
+            thClass: 'th-date',
+        },
+        {
+            label: '終了日時',
+            field: 'end_date',
             width: '100px',
             thClass: 'th-date',
         },

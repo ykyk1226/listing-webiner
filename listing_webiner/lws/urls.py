@@ -1,7 +1,7 @@
 from django.urls import path
 from lws.views import listingWebinerView
 from lws.views import RegisterWebinerView
-from lws.views import MypageView
+from lws.views import MycalenderView
 
 app_name = 'lws'
 urlpatterns = [
@@ -10,9 +10,9 @@ urlpatterns = [
         listingWebinerView.listingWebiner,
         name='webiner_list'),
     path(
-        'mypage/',
-        MypageView.as_view(),
-        name='mypage'),
+        'mycalender/',
+        MycalenderView.as_view(),
+        name='mycalender'),
     path(
         'webiner/register',
         RegisterWebinerView.as_view(),

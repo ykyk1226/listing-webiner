@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'lws/css/mycalender.css' %}">
+{% endblock %}
+
+{% block content %}
+    <script type="text/javascript">
+        var events = [];
+        var today = new Date();
+    </script>
+    {% for mywebiner in mywebiners %}
+        <script type="text/javascript">
+            var start_date = new Date("{{ mywebiner.start_date }}");
+            var end_date = new Date("{{ mywebiner.end_date }}");
+            events.push({ title: "{{ mywebiner.title }}", start: start_date, end: end_date, url: "{{ mywebiner.url }}" });
+        </script>
+    {% endfor %}
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calender-app');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                height: 700,
+                eventBorderColor: '#3399FF',
+                eventBackgroundColor: '#3399FF',
+                eventTimeFormat: {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    meridiem: false,
+                    hour12: false,
+                },
+                initialView: 'dayGridMonth',
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'numeric'
+                },
+                headerToolbar: {
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                    center: 'title',
+                    left:  'prev,today,next',
+                },
+                buttonText: {
+                    today: '今日',
+                    dayGridMonth: '月',
+                    timeGridWeek: '週',
+                    timeGridDay: '日',
+                },
+                events: events,
+                views: {
+                    dayGrid: {
+                        dayMaxEventRows: 3
+                    },
+                    timeGrid: {
+                        eventMouseEnter: function(mouseEnterInfo) {
+                            mouseEnterInfo.el.style.backgroundColor = '#3399CC';
+                        },
+                        eventMouseLeave: function(mouseEnterInfo) {
+                            mouseEnterInfo.el.style.backgroundColor = '#3399FF';
+                        },
+                        dayHeaderFormat: {
+                            weekday: 'short',
+                            day: 'numeric',
+                        }
+                    },
+                    week: {
+                        eventMouseEnter: function(mouseEnterInfo) {
+                            mouseEnterInfo.el.style.backgroundColor = '#3399CC';
+                        },
+                        eventMouseLeave: function(mouseEnterInfo) {
+                            mouseEnterInfo.el.style.backgroundColor = '#3399FF';
+                        },
+                        dayHeaderFormat: {
+                            weekday: 'short',
+                            day: 'numeric',
+                        }
+                    },
+                },
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault();
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                    }
+                },
+            });
+            calendar.render();
+        });
+    </script>
+    <div id="calender-app">
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/locales-all.min.js'></script>
+{% endblock %}

@@ -7,7 +7,8 @@ class WebinerListsModel(models.Model):
     id = models.CharField(primary_key=True, max_length=30)
     title = models.CharField(max_length=100)
     url = models.CharField(max_length=300)
-    date = models.CharField(max_length=50)
+    start_date = models.CharField(max_length=50)
+    end_date = models.CharField(max_length=50)
     category_id = models.ForeignKey(
         CategoryModel,
         db_column='category_id',

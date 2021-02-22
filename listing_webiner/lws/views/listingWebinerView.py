@@ -14,7 +14,7 @@ def listingWebiner(request):
     Returns:
         HttpResponse: lws/webiner_list.htmlを表示するためのhttpレスポンス
     """
-    webiners = WebinerListsModel.objects.all().order_by('date')
+    webiners = WebinerListsModel.objects.all().order_by('start_date')
     categories = CategoryModel.objects.all().order_by('name')
     return render(request, 'lws/webiner_list.html',
                   {'webiners': webiners, 'categories': categories})
