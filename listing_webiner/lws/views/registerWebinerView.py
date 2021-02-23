@@ -6,6 +6,9 @@ from django.db import IntegrityError
 from lws.models.webinerListsModel import WebinerListsModel
 from lws.forms.registerWebinerForm import RegisterWebinerForm
 from lws.models.mylistsModel import MylistsModel
+import logging
+from lws.utils.messageUtils import *
+import sys
 
 
 class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
@@ -30,7 +33,9 @@ class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
             try:
                 MylistsModel.objects.bulk_create(mylists)
             except IntegrityError:
+                logging.getLogger('lws').error(MSG_ERR_0002)
                 return HttpResponse(status=500)
             return HttpResponse(status=200)
         else:
+            logging.getLogger('lws').error(MSG_ERR_0001)
             return HttpResponse(status=500)
