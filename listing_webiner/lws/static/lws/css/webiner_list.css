@@ -27,17 +27,17 @@
     margin: auto
 }
 
-.add_webiner_result {
+.message {
     width: 80%;
     margin: auto;
 }
 
-.add_webiner_result div {
+.message div {
     text-align: center;
     display: inline-block;
 }
 
-.batsu {
+#batsu {
     font-size: 100%;
     font-weight: bold;
     color: #999;
@@ -47,6 +47,6 @@
     transition: .2s;
 }
 
-.batsu:hover {
+#batsu:hover {
     color: #333;
 }

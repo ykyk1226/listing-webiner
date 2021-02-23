@@ -65,6 +65,6 @@ new Vue({
 });
 
 function delete_message() {
-    document.getElementById("add_webiner_result_message").innerHTML = "";
+    document.getElementById("add_webiner_result").innerHTML = "";
     document.getElementById("batsu").innerHTML = "";
 }
