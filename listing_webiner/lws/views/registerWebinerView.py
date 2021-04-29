@@ -7,7 +7,8 @@ from lws.models.webinerListsModel import WebinerListsModel
 from lws.forms.registerWebinerForm import RegisterWebinerForm
 from lws.models.mylistsModel import MylistsModel
 import logging
-from lws.utils.messageUtils import *
+from lws.utils.logMessageUtils import *
+from lws.utils.clientMessageUtils import *
 
 
 class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
@@ -18,7 +19,7 @@ class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
             request ([type]): request
 
         Returns:
-            HttpResponse: 登録に成功:200、重複:550、エラー:500
+            HttpResponse: 登録に成功:200、エラー:500
         """
         form = RegisterWebinerForm(request.POST)
         if form.is_valid():
@@ -32,9 +33,9 @@ class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
             try:
                 MylistsModel.objects.bulk_create(mylists)
             except IntegrityError:
-                logging.getLogger('lws').error(MSG_ERR_0002)
-                return HttpResponse(status=550)
+                logging.getLogger('lws').error(MSG_LOG_ERR_0002)
+                return HttpResponse(status=500, content=MSG_CLIENT_0001)
             return HttpResponse(status=200)
         else:
-            logging.getLogger('lws').error(MSG_ERR_0001)
-            return HttpResponse(status=500)
+            logging.getLogger('lws').error(MSG_LOG_ERR_0001)
+            return HttpResponse(status=500, content=MSG_CLIENT_0002)

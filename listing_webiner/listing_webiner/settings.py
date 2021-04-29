@@ -132,7 +132,7 @@ LOGIN_URL='/login'
 LOGIN_REDIRECT_URL='/lws/webiner'
 LOGOUT_REDIRECT_URL='/login'
 
-# Logging
+# Logging setting
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

@@ -29,10 +29,8 @@
             XHR.onreadystatechange = function(){
                 if (XHR.status == 200) {
                     document.getElementById("add_webiner_result").innerHTML = "My Calenderに" + selected_rows.length + "件追加しました";
-                } else if (XHR.status == 550) {
-                    document.getElementById("add_webiner_result").innerHTML = "My Calenderに既に登録されているため追加できません";
                 } else {
-                    document.getElementById("add_webiner_result").innerHTML = "何らかのエラーが発生しました";
+                    document.getElementById("add_webiner_result").innerHTML = XHR.responseText;
                 }
                 document.getElementById("batsu").innerHTML = "×";
             };
