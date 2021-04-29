@@ -12,8 +12,8 @@
     </script>
     {% for mywebiner in mywebiners %}
         <script type="text/javascript">
-            var start_date = new Date("{{ mywebiner.start_date }}");
-            var end_date = new Date("{{ mywebiner.end_date }}");
+            var start_date = "{{ mywebiner.start_date }}";
+            var end_date = "{{ mywebiner.end_date }}";
             events.push({ title: "{{ mywebiner.title }}", start: start_date, end: end_date, url: "{{ mywebiner.url }}" });
         </script>
     {% endfor %}
@@ -94,4 +94,5 @@
     <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/locales-all.min.js'></script>
+    <script src="{% static 'lws/js/mycalender.js' %}"></script>
 {% endblock %}

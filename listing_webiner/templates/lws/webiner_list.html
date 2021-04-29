@@ -16,7 +16,7 @@
     {% endfor %}
     {% for webiner in webiners %}
         <script type="text/javascript">
-            rows.push({ id: "{{ webiner.id }}", start_date:"{{ webiner.start_date }}", end_date:"{{ webiner.end_date }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
+            rows.push({ id: "{{ webiner.id }}", start_date:"{{ webiner.start_date|date:'Y/m/d f a' }}", end_date:"{{ webiner.end_date|date:'Y/m/d f a' }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
         </script>
     {% endfor %}
     <script type="text/javascript">
@@ -29,8 +29,10 @@
             XHR.onreadystatechange = function(){
                 if (XHR.status == 200) {
                     document.getElementById("add_webiner_result").innerHTML = "My Calenderに" + selected_rows.length + "件追加しました";
-                } else {
+                } else if (XHR.status == 550) {
                     document.getElementById("add_webiner_result").innerHTML = "My Calenderに既に登録されているため追加できません";
+                } else {
+                    document.getElementById("add_webiner_result").innerHTML = "何らかのエラーが発生しました";
                 }
                 document.getElementById("batsu").innerHTML = "×";
             };

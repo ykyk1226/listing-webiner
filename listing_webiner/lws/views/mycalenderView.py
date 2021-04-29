@@ -8,10 +8,10 @@ from lws.models.webinerListsModel import WebinerListsModel
 
 class MycalenderView(generic.CreateView, LoginRequiredMixin):
     def get(self, request, *args, **kwargs):
-        """mypage表示処理、lws/mypage.htmlを表示する。
+        """mycalender表示処理、lws/mycalender.htmlを表示する。
 
         Returns:
-            HttpResponse: lws/mypage.htmlを表示するためのhttpレスポンス
+            HttpResponse: lws/mycalender.htmlを表示するためのhttpレスポンス
         """
         mylists = MylistsModel.objects.select_related('webiner').filter(
             user=request.user).order_by('webiner_id__start_date')
