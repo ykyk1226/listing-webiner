@@ -38,4 +38,5 @@ class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
             return HttpResponse(status=200)
         else:
             logging.getLogger('lws').error(MSG_LOG_ERR_0001)
+            logging.getLogger('lws').error(form.errors)
             return HttpResponse(status=500, content=MSG_CLIENT_0002)
