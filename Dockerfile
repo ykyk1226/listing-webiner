@@ -20,8 +20,7 @@ RUN apt update && \
 COPY ./listing_webiner /usr/src/listing_webiner
 
 RUN useradd appuser && \
-    chown -R appuser:appuser /usr/src/listing_webiner && \
-    chown -R appuser:appuser /usr/lib/x86_64-linux-gnu/odbc
+    chown -R appuser:appuser /usr/src/listing_webiner
 
 WORKDIR /usr/src/listing_webiner
 USER appuser

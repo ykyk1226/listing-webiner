@@ -89,7 +89,7 @@ DATABASES = {
         'OPTIONS': {
             'driver': 'FreeTDS',
             'host_is_server': True,
-            'extra_params': 'tds_version=9.0;',
+            'extra_params': 'tds_version=8.0;',
         },
     }
 }
