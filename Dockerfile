@@ -22,8 +22,7 @@ COPY ./listing_webiner /usr/src/listing_webiner
 RUN useradd appuser && \
     chown -R appuser:appuser /usr/src/listing_webiner
 
-RUN chown appuser:appuser /usr/lib/aarch64-linux-gnu/odbc/libtdsodbc.so && \
-    chown appuser:appuser /usr/lib/aarch64-linux-gnu/odbc/libtdsS.so
+RUN chown -R appuser:appuser /usr/lib/aarch64-linux-gnu/odbc
 
 WORKDIR /usr/src/listing_webiner
 USER appuser
