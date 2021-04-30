@@ -6,11 +6,11 @@ COPY settings/odbcinst.ini /etc/odbcinst.ini
 
 RUN apt update && \
     apt -y install gcc=4:8.3.0-1 \
-                   unixodbc=2.3.6-0.1 \
-                   unixodbc-dev=2.3.6-0.1 \
-                   freetds-dev=1.00.104-1+deb10u1 \
-                   freetds-bin=1.00.104-1+deb10u1 \
-                   tdsodbc=1.00.104-1+deb10u1 && \
+                   unixodbc \
+                   unixodbc-dev \
+                   freetds-dev \
+                   freetds-bin \
+                   tdsodbc && \
     export ODBCINI=/etc/odbc.ini && \
     export ODBCSYSINI=/etc && \
     export FREETDSCONF=/etc/freetds/freetds.conf && \
