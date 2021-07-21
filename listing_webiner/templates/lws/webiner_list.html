@@ -21,19 +21,25 @@
     {% endfor %}
     <script type="text/javascript">
         function register_to_mylist(){
-            document.getElementById('webiner_lists').value = JSON.stringify(selected_rows);
-            let mixedDatas = new FormData(document.getElementById("webiner_data_form"));
-            let XHR = new XMLHttpRequest();
-            XHR.open("POST", "{% url 'lws:register_webiner' %}", true);
-            XHR.send(mixedDatas);
-            XHR.onreadystatechange = function(){
-                if (XHR.status == 200) {
-                    document.getElementById("add_webiner_result").innerHTML = "My Calenderに" + selected_rows.length + "件追加しました";
-                } else {
-                    document.getElementById("add_webiner_result").innerHTML = XHR.responseText;
-                }
-                document.getElementById("batsu").innerHTML = "×";
-            };
+            let fail_flg = false;
+            selected_rows.forEach(selected_row => {
+                document.getElementById('webiner_list').value = JSON.stringify(selected_row);
+                let formData = new FormData(document.getElementById("webiner_data_form"));
+                let XHR = new XMLHttpRequest();
+                XHR.open("POST", "{% url 'lws:register_webiner' %}", true);
+                XHR.send(formData);
+                XHR.onreadystatechange = function(){
+                    if (XHR.status != 200) {
+                        document.getElementById("add_webiner_result").innerHTML = XHR.responseText;
+                        fail_flg = true;
+                    }
+                };
+            });
+
+            if (!fail_flg) {
+                document.getElementById("add_webiner_result").innerHTML = "My Calenderに全" + selected_rows.length + "件追加しました";
+            }
+            document.getElementById("batsu").innerHTML = "×";
         };
     </script>
     <div class="message">
@@ -74,7 +80,7 @@
                 @on-selected-rows-change="selectionChanged"
             />
             <div slot="selected-row-actions">
-                <input type="hidden" name="webiner_lists" id="webiner_lists"　value="">
+                <input type="hidden" name="webiner_list" id="webiner_list"　value="">
                 <button type="button" id="send_webiner_data" onclick="register_to_mylist()">My Calenderへ登録</button>
             </div>
         </form>

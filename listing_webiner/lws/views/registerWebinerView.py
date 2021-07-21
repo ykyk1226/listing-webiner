@@ -23,15 +23,12 @@ class RegisterWebinerView(generic.CreateView, LoginRequiredMixin):
         """
         form = RegisterWebinerForm(request.POST)
         if form.is_valid():
-            webiner_lists = json.loads(form.cleaned_data['webiner_lists'])
-            mylists = []
-            for webiner in webiner_lists:
-                mylists.append(MylistsModel(
-                    user=request.user,
-                    webiner=WebinerListsModel(id=webiner['id']),
-                ))
+            webiner = json.loads(form.cleaned_data['webiner_list'])
             try:
-                MylistsModel.objects.bulk_create(mylists)
+                MylistsModel.objects.create(
+                        user=request.user,
+                        webiner=WebinerListsModel(id=webiner['id'])
+                    )
             except IntegrityError:
                 logging.getLogger('lws').error(MSG_LOG_ERR_0002)
                 return HttpResponse(status=500, content=MSG_CLIENT_0001)
