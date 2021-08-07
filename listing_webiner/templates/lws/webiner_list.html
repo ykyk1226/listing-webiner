@@ -16,7 +16,7 @@
     {% endfor %}
     {% for webiner in webiners %}
         <script type="text/javascript">
-            rows.push({ id: "{{ webiner.id }}", start_date:"{{ webiner.start_date|date:'Y/m/d f a' }}", end_date:"{{ webiner.end_date|date:'Y/m/d f a' }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
+            rows.push({ id: "{{ webiner.id }}", start_date:"{{ webiner.start_date|date:'Y/m/d H:i T' }}", end_date:"{{ webiner.end_date|date:'Y/m/d H:i T' }}", title:"{{ webiner.title }}", url:"{{ webiner.url }}", category:"{{ webiner.category_id.name }}" });
         </script>
     {% endfor %}
     <script type="text/javascript">
