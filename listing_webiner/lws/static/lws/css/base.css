@@ -89,7 +89,7 @@ body {
 }
 
 .menu {
-    background-color: rgba(197, 197, 197, 0.671);
+    background-color: #110000;
     z-index: 30;
     padding: 0 0;
     position: fixed;
@@ -99,7 +99,7 @@ body {
     float: right;
 }
 .menu a {
-    color: #110000;
+    color: white;
     text-decoration: none;
     font-size: 1.0rem;
 }
