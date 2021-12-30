@@ -6,13 +6,16 @@ body {
     background-color: #110000;
     height: 70px;
     font-size: 20px;
-    color: white;
 }
 
 .hd-title {
     margin-left: 20pt;
     float: left;
     font-size: 1.2rem;
+}
+.hd-title a {
+    text-decoration: none;
+    color: white;
 }
 
 /* ハンバーガーメニュー */
@@ -25,14 +28,12 @@ body {
     background-color: #110000;
     position: fixed;
 }
-
 .hamburger_btn .line {
     width: 32px;
     height: 3px;
     background-color: white;
     position: fixed;
 }
-
 .line_01 {
     right: 20px;
     top: 22px;
@@ -48,7 +49,6 @@ body {
     top: 42px;
     transition: 0.4s ease;
 }
-
 .btn_line01 {
     transform: translateY(10px) rotate(-45deg);
     transition: 0.4s ease;
@@ -72,7 +72,6 @@ body {
 .menu-leave, .menu-enter-to{
     opacity: 1;
 }
-
 .menu li {
     list-style: none;
     line-height: 30px;
@@ -83,11 +82,9 @@ body {
     border-right: transparent;
     width: 150px;
 }
-
 .menu li:hover {
     background-color: #808080;
 }
-
 .menu {
     background-color: #110000;
     z-index: 30;
